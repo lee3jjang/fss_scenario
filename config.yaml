@@ -1,0 +1,4 @@
+Currency: "USD"
+BaseYymm: '202012'
+FileNameBase: '수익률.xlsx'
+FileNameShock: '충격시나리오.xlsx'
