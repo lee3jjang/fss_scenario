@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Plot from 'react-plotly.js';
-import './App.css';
+import './Simulation.css';
 import Menu from './Menu';
 
-function App() {
+function Simulation() {
   
   const [intRate, setIntRate] = useState({});
   const [info, setInfo] = useState({});
@@ -44,14 +44,29 @@ function App() {
   }
 
   const download = () => {
-    const blob = new Blob([JSON.stringify(intRate.data)], {type: "application/json"});
+    let intRateCsv = [["t", "forwardDiscAsset", "forwardDiscLiab", "spotDiscAsset", "spotDiscLiab"]];
+    let intRateTemp = [];
+    for (let i=0; i<intRate.t.length; i++) {
+      intRateTemp = [];
+      intRateTemp.push(intRate.t[i]);
+      intRateTemp.push(intRate.forwardDiscAsset[i]);
+      intRateTemp.push(intRate.forwardDiscLiab[i]);
+      intRateTemp.push(intRate.spotDiscAsset[i]);
+      intRateTemp.push(intRate.spotDiscLiab[i]);
+      intRateCsv.push(intRateTemp.join(","));
+    }
+    const resultCsv = intRateCsv.join("\n");
+    
+    const blob = new Blob([resultCsv], {type: "text/csv"});
     const fileDownloadUrl = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = fileDownloadUrl;
-    a.download = 'test.json';
+    a.download = 'int_rate.csv';
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
+
+
 
     const now = new Date(Date.now());
     document.getElementById('log').textContent += `[${now.getFullYear()}.${now.getMonth()+1}.${now.getDate()} ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}] ` + '다운로드 실행\n';
@@ -143,20 +158,22 @@ function App() {
         {/* 왼쪽 */}
         <div>
           <table>
-            <tr>
-              <td>기준일자</td>
-              <td><input type="text" value={baseDate} onChange={onBaseDateChangeHandler} required /></td>
-            </tr>
-            <tr>
-              <td>화폐</td>
-              <td>
-                <select value={currency} onChange={onCurrencyChangeHandler}>
-                  <option value="KRW">KRW</option>
-                  <option value="USD">USD</option>
-                  <option value="JPY">JPY</option>
-                </select>
-              </td>
-            </tr>
+            <tbody>
+              <tr>
+                <td>기준일자</td>
+                <td><input type="text" value={baseDate} onChange={onBaseDateChangeHandler} required /></td>
+              </tr>
+              <tr>
+                <td>화폐</td>
+                <td>
+                  <select value={currency} onChange={onCurrencyChangeHandler}>
+                    <option value="KRW">KRW</option>
+                    <option value="USD">USD</option>
+                    <option value="JPY">JPY</option>
+                  </select>
+                </td>
+              </tr>
+            </tbody>
           </table>
           <div className="btnDiv">
             <button className="btn" id="btnCalc" onClick={calculate}>계산</button>
@@ -165,37 +182,41 @@ function App() {
         </div>
         {/* 오른쪽 */}
         <table>
-          <tr>
-            <td>LTFR</td>
-            <td><input type="text" value={ltfr} onChange={onLtfrChangeHandler} required /></td>
-          </tr>
-          <tr>
-            <td>스프레드</td>
-            <td><input type="text" value={spread} onChange={onSpreadChangeHandler} required /></td>
-          </tr>
-          <tr>
-            <td>최종관찰만기</td>
-            <td><input type="text" value={llp} onChange={onLlpChangeHandler} required /></td>
-          </tr>
-          <tr>
-            <td>수렴시점</td>
-            <td><input type="text" value={cp} onChange={onCpChangeHandler} required /></td>
-          </tr>
-          <tr>
-            <td>이자지급주기</td>
-            <td><input type="text" value={freq} onChange={onFreqChangeHandler} required /></td>
-          </tr>
-          <tr>
-            <td>테너</td>
-            <td><input type="text" value={tenor} onChange={onTenorChangeHandler} required /></td>
-          </tr>
-          <tr>
-            <td>충격시나리오</td>
-            <td><input type="text" value={shockCont} onChange={onShockContChangeHandler} required /></td>
-          </tr>
-          <tr>
-            <input type="checkbox" value={isCustomSetting} onChange={onCustomSettingCheckHandler} /> 자동설정
-          </tr>
+          <tbody>
+            <tr>
+              <td>LTFR</td>
+              <td><input type="text" value={ltfr} onChange={onLtfrChangeHandler} required /></td>
+            </tr>
+            <tr>
+              <td>스프레드</td>
+              <td><input type="text" value={spread} onChange={onSpreadChangeHandler} required /></td>
+            </tr>
+            <tr>
+              <td>최종관찰만기</td>
+              <td><input type="text" value={llp} onChange={onLlpChangeHandler} required /></td>
+            </tr>
+            <tr>
+              <td>수렴시점</td>
+              <td><input type="text" value={cp} onChange={onCpChangeHandler} required /></td>
+            </tr>
+            <tr>
+              <td>이자지급주기</td>
+              <td><input type="text" value={freq} onChange={onFreqChangeHandler} required /></td>
+            </tr>
+            <tr>
+              <td>테너</td>
+              <td><input type="text" value={tenor} onChange={onTenorChangeHandler} required /></td>
+            </tr>
+            <tr>
+              <td>충격시나리오</td>
+              <td><input type="text" value={shockCont} onChange={onShockContChangeHandler} required /></td>
+            </tr>
+            <tr>
+              <td>
+                <input type="checkbox" value={isCustomSetting} onChange={onCustomSettingCheckHandler} /> 자동설정
+              </td>
+            </tr>
+          </tbody>
         </table>
       </div>
 
@@ -204,4 +225,4 @@ function App() {
   );
 }
 
-export default App;
+export default Simulation;
