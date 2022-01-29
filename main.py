@@ -1,17 +1,28 @@
 import sqlite3
 import numpy as np
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from typing import Optional, List, Dict
 from kics_qis4_scenario import SmithWilsonYTM, SmithWilson_ALPHA, Cont2Discrete, SmithWilson
 
 
 app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 conn = sqlite3.connect('fss_scenario.db')
 cursor = conn.cursor()
 
-def get_int_rate_sw(tenor0: List[float], ytm: List[float],
-    shock_cont: List[float], alpha0: float, ltfr: float,
-    freq: int, spread: float, cp: float, tol: float, llp: float, t: int) -> Dict[str, List[float]]:
+def get_int_rate_sw(
+      tenor0: List[float], ytm: List[float],
+      shock_cont: List[float], alpha0: float, ltfr: float,
+      freq: int, spread: float, cp: float, tol: float, llp: float, t: int
+    ) -> Dict[str, List[float]]:
     
     t = np.arange(t+2)
     t_out = t/12

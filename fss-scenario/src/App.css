@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+}
+.btn {
+    background: yellow;
+    padding: 30px 30px;
+    border: 5px solid red;
+    cursor: pointer;
+    transition: .4s;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 30px;
+}
+.btn:hover {
+    background: pink;
+    padding: 40px 40px;
+}
