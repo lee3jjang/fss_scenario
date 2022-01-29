@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-01-29T08:58:35.852Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36" etag="riBq0qr8ufTs9DN856bA" version="16.5.2" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2022-01-29T09:02:39.696Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36" etag="k-3zvLk1RCeXW7Ss50EH" version="16.5.2" type="github" pages="2">
   <diagram id="rJgiZef4j1xF5qz12_F-" name="Page-1">
     <mxGraphModel dx="1955" dy="934" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -121,7 +121,7 @@
         <mxCell id="ShQhOyUhaPXfKUH5L9Id-6" value="시뮬레이션" style="strokeColor=inherit;fillColor=inherit;gradientColor=inherit;strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;fontSize=17;fontColor=#666666;" vertex="1" parent="ShQhOyUhaPXfKUH5L9Id-2">
           <mxGeometry x="400.25" width="133.41666666666666" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="ShQhOyUhaPXfKUH5L9Id-7" value="데이터입력" style="strokeColor=inherit;fillColor=inherit;gradientColor=inherit;strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;fontSize=17;fontColor=#666666;" vertex="1" parent="ShQhOyUhaPXfKUH5L9Id-2">
+        <mxCell id="ShQhOyUhaPXfKUH5L9Id-7" value="데이터 Import" style="strokeColor=inherit;fillColor=inherit;gradientColor=inherit;strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;fontSize=17;fontColor=#666666;" vertex="1" parent="ShQhOyUhaPXfKUH5L9Id-2">
           <mxGeometry x="533.6666666666666" width="133.41666666666666" height="30" as="geometry" />
         </mxCell>
         <mxCell id="ShQhOyUhaPXfKUH5L9Id-8" value="배치" style="strokeColor=inherit;fillColor=inherit;gradientColor=inherit;strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;fontSize=17;fontColor=#666666;" vertex="1" parent="ShQhOyUhaPXfKUH5L9Id-2">
