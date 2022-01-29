@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Plot from 'react-plotly.js';
 import './App.css';
+import Menu from './Menu';
 
 function App() {
   
@@ -89,6 +90,7 @@ function App() {
 
   return (
     <>
+      <Menu />
       <Plot data={[{
           x: intRate.t,
           y: intRate.forwardDiscLiab,

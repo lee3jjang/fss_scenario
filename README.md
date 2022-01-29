@@ -11,6 +11,7 @@
 * API 제공
 * 여러 시나리오 일괄 생성 기능
 * 문서화
+* 현물, 할인요소 구하기
 
 * uvicorn main:app --reload
 

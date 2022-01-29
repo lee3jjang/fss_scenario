@@ -34,7 +34,12 @@ async def calucate(
     sql = """
     SELECT BASE_DATE, TENOR, YIELD_RATE
       FROM YIELD_RATE_HIST
-      WHERE BASE_DATE = (SELECT MAX(BASE_DATE) FROM YIELD_RATE_HIST WHERE BASE_DATE <= ? AND CURRENCY = ?)
+      WHERE BASE_DATE = (
+          SELECT MAX(BASE_DATE)
+            FROM YIELD_RATE_HIST
+            WHERE BASE_DATE <= ?
+              AND CURRENCY = ?
+          )
         AND CURRENCY = ?
         ORDER BY TENOR
     """
