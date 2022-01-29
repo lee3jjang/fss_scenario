@@ -9,7 +9,7 @@ body {
     min-height: 100vh;
     align-items: center;
     justify-content: center;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 .btn {
     background: yellow;
@@ -24,4 +24,16 @@ body {
 .btn:hover {
     background: pink;
     padding: 40px 40px;
+}
+.setting {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+.setting td:nth-child(1) {
+    width: 120px;
+}
+.setting tr {
+    display: block;
+    margin: 5px;
 }
