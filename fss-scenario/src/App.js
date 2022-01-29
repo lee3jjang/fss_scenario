@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Plot from 'react-plotly.js';
-import './App.css';
+// import './App.css';
 
 function App() {
 
@@ -9,6 +9,7 @@ function App() {
   const [baseDate, setBaseDate] = useState('20211231');
   const [isCustomSetting, setIsCustomSetting] = useState(false);
   const [data, setData] = useState('');
+  const [selectedFile, setSelectedFile] = useState('');
 
   function fn() {
     const params = {
@@ -38,6 +39,12 @@ function App() {
   const onBaseDateChangeHandler = (e) => {
     setBaseDate(e.target.value);
   }
+  const onCustomSettingCheckHandler = (e) => {
+    setIsCustomSetting(!isCustomSetting);
+  }
+  const onFileChangeHandler = (e) => {
+    console.log(e.target.files[0]);
+  }
 
   return (
     <>
@@ -56,10 +63,17 @@ function App() {
         }]}
         layout={ {width: 640, height: 540, title: 'A Fancey Plot'} }
       />
+      
+      <br />
+      <input type="file" onChange={onFileChangeHandler} />
+      <br />
+      <label><input type="checkbox" value={isCustomSetting} onChange={onCustomSettingCheckHandler} />Custom Setting</label>
+      <br />
       <input type="text" name="basedate"
         value={baseDate} minLength="8" maxLength="8"
         onChange={onBaseDateChangeHandler}
         required />
+      <br />
       <select id="currency-select"
         name="currency"
         value={currency}
@@ -68,7 +82,9 @@ function App() {
         <option value="USD">USD</option>
         <option value="JPY">JPY</option>
       </select>
+      <br />
       <button className="btn" onClick={fn}>Get Data</button>
+      <br />
       <button className="btn" onClick={download}>Download</button>
     </>
   );
