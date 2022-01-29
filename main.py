@@ -53,7 +53,7 @@ async def calucate(
       info=dict(
         baseDate=base_date_aply,
         currency=currency,
-        tenor0=tenor0.tolist(),
+        tenor=tenor0.tolist(),
         ytm=ytm.tolist(),
         shockCont=shock_cont.tolist(),
         ltfr=ltfr,

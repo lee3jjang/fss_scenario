@@ -39,7 +39,7 @@ function App() {
 
     const now = new Date(Date.now());
     document.getElementById('log').textContent += `[${now.getFullYear()}.${now.getMonth()+1}.${now.getDate()} ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}] 계산 정보\n`
-      + `baseDate=${info.baseDate}, currency=${info.currency}, ltfr=${info.ltfr}, spread=${info.spread}, llp=${info.llp}, cp=${info.cp}, freq=${info.freq},\ntenor0=${info.tenor0}\nytm=${info.ytm}\nshockCont=${info.shockCont}\n`;
+      + `baseDate=${info.baseDate}, currency=${info.currency}, ltfr=${info.ltfr}, spread=${info.spread}, llp=${info.llp}, cp=${info.cp}, freq=${info.freq},\ntenor=${info.tenor}\nytm=${info.ytm}\nshockCont=${info.shockCont}\n`;
   }
 
   const download = () => {
