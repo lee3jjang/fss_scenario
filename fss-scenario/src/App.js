@@ -4,11 +4,11 @@ import Plot from 'react-plotly.js';
 import './App.css';
 
 function App() {
-
-  const [currency, setCurrency] = useState('KRW');
+  
+  const [intRate, setIntRate] = useState({});
+  const [info, setInfo] = useState({});
   const [baseDate, setBaseDate] = useState('20211231');
-  const [isCustomSetting, setIsCustomSetting] = useState(false);
-  const [data, setData] = useState('');
+  const [currency, setCurrency] = useState('KRW');
   const [ltfr, setLtfr] = useState(0.0495);
   const [spread, setSpread] = useState(0.00495);
   const [llp, setLlp] = useState(20);
@@ -16,19 +16,34 @@ function App() {
   const [freq, setFreq] = useState(2);
   const [tenor, setTenor] = useState('0.25,0.5,0.75,1,1.5,2,2.5,3,4,5,7,10,15,20,30,50');
   const [shockCont, setShockCont] = useState('0,0,0,0,0,0,0,0,0,0,0,0,0,0');
+  const [isCustomSetting, setIsCustomSetting] = useState(false);
 
   const calculate = () => {
     const params = {
-      custom_setting: isCustomSetting,
+      base_date: baseDate,
       currency: currency,
-      base_date: baseDate
+      ltfr: ltfr,
+      spread: spread,
+      llp: llp,
+      cp: cp,
+      freq: freq,
+      tenor0: tenor,
+      shock_cont: shockCont
     }
+
     axios.get('http://127.0.0.1:8000', {params})
-      .then(res => setData(res.data));
+      .then(res => {
+        setIntRate(res.data.data);
+        setInfo(res.data.info);
+      })
+
+    const now = new Date(Date.now());
+    document.getElementById('log').textContent += `[${now.getFullYear()}.${now.getMonth()+1}.${now.getDate()} ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}] 계산 정보\n`
+      + `baseDate=${info.baseDate}, currency=${info.currency}, ltfr=${info.ltfr}, spread=${info.spread}, llp=${info.llp}, cp=${info.cp}, freq=${info.freq},\ntenor0=${info.tenor0}\nytm=${info.ytm}\nshockCont=${info.shockCont}\n`;
   }
 
   const download = () => {
-    const blob = new Blob([JSON.stringify(data)], {type: "application/json"});
+    const blob = new Blob([JSON.stringify(intRate.data)], {type: "application/json"});
     const fileDownloadUrl = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = fileDownloadUrl;
@@ -36,6 +51,9 @@ function App() {
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
+
+    const now = new Date(Date.now());
+    document.getElementById('log').textContent += `[${now.getFullYear()}.${now.getMonth()+1}.${now.getDate()} ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}] ` + '다운로드 실행\n';
   }
 
   const onCurrencyChangeHandler = (e) => {
@@ -72,16 +90,16 @@ function App() {
   return (
     <>
       <Plot data={[{
-          x: data.t,
-          y: data.forward_disc_liab,
+          x: intRate.t,
+          y: intRate.forwardDiscLiab,
           type: 'scatter',
           mode: 'lines',
           name: 'Liability',
           marker: {color: '#009473'},
           hovertemplate: 'Tenor: %{x}M<br>Rate: %{y:,.3%}'
         }, {
-          x: data.t,
-          y: data.forward_disc_asset,
+          x: intRate.t,
+          y: intRate.forwardDiscAsset,
           type: 'scatter',
           mode: 'lines',
           name: 'Asset',
@@ -139,8 +157,8 @@ function App() {
             </tr>
           </table>
           <div className="btnDiv">
-            <button className="btn" id="btn_calc" onClick={calculate}>계산</button>
-            <button className="btn" id="btn_download" onClick={download}>다운</button>
+            <button className="btn" id="btnCalc" onClick={calculate}>계산</button>
+            <button className="btn" id="btnDownload" onClick={download}>다운</button>
           </div>
         </div>
         {/* 오른쪽 */}
@@ -178,9 +196,8 @@ function App() {
           </tr>
         </table>
       </div>
-      
-  
-      
+
+      <textarea id="log" rows="10" cols="105" readOnly />
     </>
   );
 }

@@ -3,7 +3,6 @@
 * {
     box-sizing: border-box;
 }
-
 body {
     background: #fbfbfb;
     display: flex;
@@ -27,21 +26,23 @@ input {
     font-weight: 600;
     font-size: 20px;
     border-radius: 10px;
+    /* border: 2px solid #323232; */
 }
 .btn:hover {
     box-shadow: 5px 5px 5px rgba(0,0,0,.5);
 }
-#btn_calc {
+#btnCalc {
     background: #009473;
     margin-right: 20px;
 }
-#btn_download {
+#btnDownload {
     background: #dd4124;
 }
 .setting {
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    margin-top: 20px;
 }
 .setting td:first-child {
     width: 120px;
@@ -50,7 +51,10 @@ input {
     display: block;
     margin: 5px;
 }
-
 .setting table:nth-child(2) tr:last-child {
     text-align: right;
+}
+#log {
+    margin-top: 20px;
+    resize: none;
 }
