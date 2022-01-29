@@ -5,35 +5,52 @@
 }
 
 body {
+    background: #fbfbfb;
     display: flex;
     min-height: 100vh;
     align-items: center;
     justify-content: center;
     font-family: 'Noto Sans KR', sans-serif;
 }
+input {
+    background: #fbfbfb;
+    border: none;
+}
+.btnDiv {
+    margin-top: 50px;
+}
 .btn {
-    background: yellow;
-    padding: 30px 30px;
-    border: 5px solid red;
+    padding: 10px 20px;
+    border: none;
     cursor: pointer;
     transition: .4s;
-    text-transform: uppercase;
-    font-weight: 500;
-    font-size: 30px;
+    font-weight: 600;
+    font-size: 20px;
+    border-radius: 10px;
 }
 .btn:hover {
-    background: pink;
-    padding: 40px 40px;
+    box-shadow: 5px 5px 5px rgba(0,0,0,.5);
+}
+#btn_calc {
+    background: #009473;
+    margin-right: 20px;
+}
+#btn_download {
+    background: #dd4124;
 }
 .setting {
     display: flex;
     justify-content: center;
     align-items: flex-start;
 }
-.setting td:nth-child(1) {
+.setting td:first-child {
     width: 120px;
 }
 .setting tr {
     display: block;
     margin: 5px;
+}
+
+.setting table:nth-child(2) tr:last-child {
+    text-align: right;
 }

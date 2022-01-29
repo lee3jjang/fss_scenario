@@ -15,8 +15,9 @@ function App() {
   const [cp, setCp] = useState(60);
   const [freq, setFreq] = useState(2);
   const [tenor, setTenor] = useState('0.25,0.5,0.75,1,1.5,2,2.5,3,4,5,7,10,15,20,30,50');
+  const [shockCont, setShockCont] = useState('0,0,0,0,0,0,0,0,0,0,0,0,0,0');
 
-  const fn = () => {
+  const calculate = () => {
     const params = {
       custom_setting: isCustomSetting,
       currency: currency,
@@ -63,6 +64,9 @@ function App() {
   }
   const onTenorChangeHandler = (e) => {
     setTenor(e.target.value);
+  }
+  const onShockContChangeHandler = (e) => {
+    setShockCont(e.target.value);
   }
 
   return (
@@ -117,22 +121,28 @@ function App() {
 
       <div className="setting">
         {/* 왼쪽 */}
-        <table>
-          <tr>
-            <td>기준일자</td>
-            <td><input type="text" value={baseDate} onChange={onBaseDateChangeHandler} required /></td>
-          </tr>
-          <tr>
-            <td>화폐</td>
-            <td>
-              <select value={currency} onChange={onCurrencyChangeHandler}>
-                <option value="KRW">KRW</option>
-                <option value="USD">USD</option>
-                <option value="JPY">JPY</option>
-              </select>
-            </td>
-          </tr>
-        </table>
+        <div>
+          <table>
+            <tr>
+              <td>기준일자</td>
+              <td><input type="text" value={baseDate} onChange={onBaseDateChangeHandler} required /></td>
+            </tr>
+            <tr>
+              <td>화폐</td>
+              <td>
+                <select value={currency} onChange={onCurrencyChangeHandler}>
+                  <option value="KRW">KRW</option>
+                  <option value="USD">USD</option>
+                  <option value="JPY">JPY</option>
+                </select>
+              </td>
+            </tr>
+          </table>
+          <div className="btnDiv">
+            <button className="btn" id="btn_calc" onClick={calculate}>계산</button>
+            <button className="btn" id="btn_download" onClick={download}>다운</button>
+          </div>
+        </div>
         {/* 오른쪽 */}
         <table>
           <tr>
@@ -159,16 +169,18 @@ function App() {
             <td>테너</td>
             <td><input type="text" value={tenor} onChange={onTenorChangeHandler} required /></td>
           </tr>
+          <tr>
+            <td>충격시나리오</td>
+            <td><input type="text" value={shockCont} onChange={onShockContChangeHandler} required /></td>
+          </tr>
+          <tr>
+            <input type="checkbox" value={isCustomSetting} onChange={onCustomSettingCheckHandler} /> 자동설정
+          </tr>
         </table>
       </div>
       
-      <label><input type="checkbox" value={isCustomSetting} onChange={onCustomSettingCheckHandler} />Custom Setting</label>
-      <br />
+  
       
-      <br />
-      <button className="btn" onClick={fn}>Get Data</button>
-      <br />
-      <button className="btn" onClick={download}>Download</button>
     </>
   );
 }
