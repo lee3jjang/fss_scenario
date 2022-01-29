@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-01-29T09:10:04.708Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36" etag="tZim_CsUefJEHhwTdmzW" version="16.5.2" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2022-01-29T09:12:39.322Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36" etag="Jl5RYo9O1WcCzTMHt9we" version="16.5.2" type="github" pages="2">
   <diagram id="rJgiZef4j1xF5qz12_F-" name="Page-1">
     <mxGraphModel dx="1673" dy="934" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -130,8 +130,11 @@
         <mxCell id="ShQhOyUhaPXfKUH5L9Id-16" value="로고" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="9.5" y="10" width="150.5" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="ShQhOyUhaPXfKUH5L9Id-17" value="&lt;font style=&quot;font-size: 1px&quot;&gt;[2022.01.29 18:09] 기준일자=20211231, 화폐=KRW, LTFR=4.92%, 스프레드=0.495%, 이자지급주기=2, 최종관찰만기=30, 수렴시점=60, 테너=1,2,3,4,5,10,20&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=50;fontStyle=1;fontFamily=Noto Sans KR;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DNoto%2BSans%2BKR;align=left;verticalAlign=top;" vertex="1" parent="1">
-          <mxGeometry x="58.5" y="750" width="690" height="190" as="geometry" />
+        <mxCell id="ShQhOyUhaPXfKUH5L9Id-17" value="&lt;font style=&quot;font-size: 1px&quot;&gt;[2022.01.29 18:09] 기준일자=20211231, 화폐=KRW, LTFR=0.0492, 스프레드=0.00495, 이자지급주기=2, 최종관찰만기=30, 수렴시점=60, 테너=1,2,3,4,5,10,20, 금리=0.0523,0.00534,0.053,0.0423&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=50;fontStyle=1;fontFamily=Noto Sans KR;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DNoto%2BSans%2BKR;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="58.5" y="780" width="690" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="ShQhOyUhaPXfKUH5L9Id-18" value="로그" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Noto Sans KR;fontSize=20;fontStyle=1;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DNoto%2BSans%2BKR;" vertex="1" parent="1">
+          <mxGeometry x="68.5" y="738" width="81.5" height="40" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
