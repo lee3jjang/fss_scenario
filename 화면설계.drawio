@@ -1,11 +1,11 @@
-<mxfile host="app.diagrams.net" modified="2022-01-29T08:52:28.661Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36" etag="SeWv-qgtTTDubB78KUJv" version="16.5.2" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2022-01-29T08:56:39.709Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36" etag="gbWJQlUXxCco0jy9uryj" version="16.5.2" type="github" pages="2">
   <diagram id="rJgiZef4j1xF5qz12_F-" name="Page-1">
-    <mxGraphModel dx="1662" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1955" dy="934" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="U3Zl1ZmblYE1_TfbCVX8-1" value="그래프" style="rounded=0;whiteSpace=wrap;html=1;fontSize=50;fontStyle=1;fontFamily=Noto Sans KR;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DNoto%2BSans%2BKR;" parent="1" vertex="1">
-          <mxGeometry x="20" y="20" width="770" height="340" as="geometry" />
+          <mxGeometry x="58.5" y="80" width="690" height="320" as="geometry" />
         </mxCell>
         <mxCell id="U3Zl1ZmblYE1_TfbCVX8-7" value="" style="group" parent="1" vertex="1" connectable="0">
           <mxGeometry x="58.5" y="488.5" width="300" height="30" as="geometry" />
@@ -111,6 +111,27 @@
         </mxCell>
         <mxCell id="U3Zl1ZmblYE1_TfbCVX8-87" value="이자지급주기" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Courier New;fontSize=15;" parent="1" vertex="1">
           <mxGeometry x="428.5" y="607" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ShQhOyUhaPXfKUH5L9Id-2" value="" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;strokeColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="9.5" y="10" width="800.5" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ShQhOyUhaPXfKUH5L9Id-3" value="시뮬레이션" style="strokeColor=inherit;fillColor=inherit;gradientColor=inherit;strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;fontSize=17;fontColor=#666666;" vertex="1" parent="ShQhOyUhaPXfKUH5L9Id-2">
+          <mxGeometry width="133.41666666666666" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ShQhOyUhaPXfKUH5L9Id-4" value="데이터입력" style="strokeColor=inherit;fillColor=inherit;gradientColor=inherit;strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;fontSize=17;fontColor=#666666;" vertex="1" parent="ShQhOyUhaPXfKUH5L9Id-2">
+          <mxGeometry x="133.41666666666666" width="133.41666666666666" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ShQhOyUhaPXfKUH5L9Id-5" value="" style="strokeColor=inherit;fillColor=inherit;gradientColor=inherit;strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;fontSize=17;fontColor=#666666;" vertex="1" parent="ShQhOyUhaPXfKUH5L9Id-2">
+          <mxGeometry x="266.8333333333333" width="133.41666666666666" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ShQhOyUhaPXfKUH5L9Id-6" value="" style="strokeColor=inherit;fillColor=inherit;gradientColor=inherit;strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;fontSize=17;fontColor=#666666;" vertex="1" parent="ShQhOyUhaPXfKUH5L9Id-2">
+          <mxGeometry x="400.25" width="133.41666666666666" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ShQhOyUhaPXfKUH5L9Id-7" value="" style="strokeColor=inherit;fillColor=inherit;gradientColor=inherit;strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;fontSize=17;fontColor=#666666;" vertex="1" parent="ShQhOyUhaPXfKUH5L9Id-2">
+          <mxGeometry x="533.6666666666666" width="133.41666666666666" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ShQhOyUhaPXfKUH5L9Id-8" value="" style="strokeColor=inherit;fillColor=inherit;gradientColor=inherit;strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;fontSize=17;fontColor=#666666;" vertex="1" parent="ShQhOyUhaPXfKUH5L9Id-2">
+          <mxGeometry x="667.0833333333334" width="133.41666666666666" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
