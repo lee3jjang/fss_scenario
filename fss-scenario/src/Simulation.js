@@ -21,7 +21,6 @@ function Simulation() {
   const [freq, setFreq] = useState(2);
   const [tenor, setTenor] = useState('0.25,0.5,0.75,1,1.5,2,2.5,3,4,5,7,10,15,20,30,50');
   const [shockCont, setShockCont] = useState('0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0');
-  const [isCustomSetting, setIsCustomSetting] = useState(false);
 
   const calculate = () => {
     const params = {
@@ -94,9 +93,6 @@ function Simulation() {
   }
   const onBaseDateChangeHandler = (e) => {
     setBaseDate(e.target.value);
-  }
-  const onCustomSettingCheckHandler = (e) => {
-    setIsCustomSetting(!isCustomSetting);
   }
   const onLtfrChangeHandler = (e) => {
     setLtfr(e.target.value);
@@ -267,11 +263,7 @@ function Simulation() {
               <td>충격시나리오</td>
               <td><input type="text" value={shockCont} onChange={onShockContChangeHandler} required /></td>
             </tr>
-            <tr>
-              <td>
-                <input type="checkbox" value={isCustomSetting} onChange={onCustomSettingCheckHandler} /> 자동설정
-              </td>
-            </tr>
+            <tr></tr>
           </tbody>
         </table>
       </div>
