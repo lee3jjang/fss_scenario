@@ -14,10 +14,10 @@ body {
 }
 #nav li {
   padding: 15px 15px;
-  transition: .4s;
 }
 #nav li:hover {
   background: #dd4124;
+  transition: .4s;
 }
 #nav a {
   color: #fbfbfb;

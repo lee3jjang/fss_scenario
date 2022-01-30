@@ -6,17 +6,22 @@ import Menu from './Menu';
 
 function Simulation() {
   
+  const [chkLtfr, setChkLtfr] = useState(false);
+  const [chkLlp, setChkLlp] = useState(false);
+  // const [chkCp, setChkCp] = useState(false);
+  const [chkMktRate, setChkMktRate] = useState(false);
   const [intRate, setIntRate] = useState({});
+  const [discType, setDiscType] = useState('forward');
   const [info, setInfo] = useState({});
   const [baseDate, setBaseDate] = useState('20211231');
   const [currency, setCurrency] = useState('KRW');
   const [ltfr, setLtfr] = useState(0.0495);
-  const [spread, setSpread] = useState(0.00495);
+  const [spread, setSpread] = useState(0.00497);
   const [llp, setLlp] = useState(20);
   const [cp, setCp] = useState(60);
   const [freq, setFreq] = useState(2);
   const [tenor, setTenor] = useState('0.25,0.5,0.75,1,1.5,2,2.5,3,4,5,7,10,15,20,30,50');
-  const [shockCont, setShockCont] = useState('0,0,0,0,0,0,0,0,0,0,0,0,0,0');
+  const [shockCont, setShockCont] = useState('0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0');
   const [isCustomSetting, setIsCustomSetting] = useState(false);
 
   const calculate = () => {
@@ -66,12 +71,25 @@ function Simulation() {
     a.click();
     document.body.removeChild(a);
 
-
-
     const now = new Date(Date.now());
     document.getElementById('log').textContent += `[${now.getFullYear()}.${now.getMonth()+1}.${now.getDate()} ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}] ` + '다운로드 실행\n';
   }
 
+  // const onChkCpChangeHandler = (e) => {
+  //   setChkCp(!chkCp);
+  // }
+  const onChkLlpChangeHandler = (e) => {
+    setChkLlp(!chkLlp);
+  }
+  const onChkLtfrChangeHandler = (e) => {
+    setChkLtfr(!chkLtfr);
+  }
+  const onChkMktRateChangeHandler = (e) => {
+    setChkMktRate(!chkMktRate);
+  }
+  const onDiscTypeChangeHandler = (e) => {
+    setDiscType(e.target.value);
+  }
   const onCurrencyChangeHandler = (e) => {
     setCurrency(e.target.value);
   }
@@ -105,10 +123,35 @@ function Simulation() {
 
   return (
     <>
+      <div className="graphSetting">
+        {/* 왼쪽 */}
+        <select value={discType} onChange={onDiscTypeChangeHandler}>
+          <option value="spot">현물</option>
+          <option value="forward">선도</option>
+          <option value="discFac">할인계수</option>
+        </select>
+        {/* 오른쪽 */}
+        <div>
+          <input type="checkbox" value={chkLtfr} onChange={onChkLtfrChangeHandler} /> LTFR
+          <input type="checkbox" value={chkLlp} onChange={onChkLlpChangeHandler} /> 최종관찰만기
+          {/* <input type="checkbox" value={chkCp} onChange={onChkCpChangeHandler} /> 수렴시점 */}
+          <input type="checkbox" value={chkMktRate} onChange={onChkMktRateChangeHandler} /> 시장금리
+        </div>
+      </div>
+
       <Menu />
-      <Plot data={[{
+      <Plot data={[
+        ...(chkMktRate && discType === "spot" ? [{
+          x: info.tenor.map(x => x*12),
+          y: info.ytm,
+          type: 'scatter',
+          mode: 'markers',
+          marker: {color: '#323232', size: 9, symbol: 'x'},
+          name: 'Market',
+          hovertemplate: 'Tenor: %{x}M<br>Rate: %{y:,.3%}'
+        }] : []), {
           x: intRate.t,
-          y: intRate.forwardDiscLiab,
+          y: discType === "forward" ? intRate.forwardDiscLiab : discType === "spot" ? intRate.spotDiscLiab : intRate.discFacLiab,
           type: 'scatter',
           mode: 'lines',
           name: 'Liability',
@@ -116,7 +159,7 @@ function Simulation() {
           hovertemplate: 'Tenor: %{x}M<br>Rate: %{y:,.3%}'
         }, {
           x: intRate.t,
-          y: intRate.forwardDiscAsset,
+          y: discType === "forward" ? intRate.forwardDiscAsset : discType === "spot" ? intRate.spotDiscAsset : intRate.discFacAsset,
           type: 'scatter',
           mode: 'lines',
           name: 'Asset',
@@ -131,7 +174,7 @@ function Simulation() {
           },
           width: 840,
           height: 450,
-          title: '1M Forward Rate',
+          title: 'Asset/Liability Discount Rate',
           xaxis: {
             showgrid: false,
             zeroline: false,
@@ -144,13 +187,28 @@ function Simulation() {
             showgrid: false,
             zeroline: false,
             showline: true,
-            title: 'Forward Rate (%)',
-            tickformat: ',.1%',
+            title: 'Rate',
+            tickformat: discType === "discFac" ? ',.1f' : ',.1%',
             linecolor: '#323232',
             linewidth: 1
           },
           paper_bgcolor: '#fbfbfb',
-          plot_bgcolor: '#fbfbfb'
+          plot_bgcolor: '#fbfbfb',
+          shapes: [...(chkLtfr && discType === "forward" ? [{
+            type: "line",
+            x0: 0,
+            x1: 1200,
+            y0: info.ltfr,
+            y1: info.ltfr,
+            line: {color: '#323232', dash: "dash", width: 3},
+          }] : []), ...(chkLlp && discType !== "discFac" ? [{
+            type: "line",
+            x0: info.llp*12,
+            x1: info.llp*12,
+            y0: 0,
+            y1: 0.01,
+            line: {color: '#323232', dash: "dash", width: 3},
+          }] : []), null]
         }}
       />
 

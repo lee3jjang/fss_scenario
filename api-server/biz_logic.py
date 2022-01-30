@@ -24,7 +24,7 @@ def get_int_rate_sw(
     alpha = SmithWilson_ALPHA(ltfr, tenor, spot_cont_input, cp, tol)
     spot_disc_liab = Cont2Discrete(SmithWilson(ltfr, alpha, tenor, spot_cont_input, t_out))
     forward_disc_liab = (1+spot_disc_liab[1:])**t[1:]/(1+spot_disc_liab[:-1])**t[:-1]-1
-    disc_fac_liab = 1/(1+spot_disc_liab[:-1])**t[:-1]
+    disc_fac_liab = 1/(1+spot_disc_liab)**t_out
 
     # Asset
     spot_disc_asset = Cont2Discrete(SmithWilsonYTM(ytm[tenor0.argmax()], alpha0, tenor0, ytm, freq, t_out))

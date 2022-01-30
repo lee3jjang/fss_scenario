@@ -58,3 +58,11 @@ input {
     margin-top: 20px;
     resize: none;
 }
+.graphSetting {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+.graphSetting select {
+    width: 200px;
+}
