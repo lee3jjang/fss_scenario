@@ -70,8 +70,9 @@ async def calucate(
         .scalar()
     yield_rate_hist = db \
         .query(YieldRateHist) \
-        .filter(and_(YieldRateHist.BASE_DATE <= base_date_aply, YieldRateHist.CURRENCY == currency)).order_by(asc(YieldRateHist.TENOR)) \
+        .filter(and_(YieldRateHist.BASE_DATE == base_date_aply, YieldRateHist.CURRENCY == currency)).order_by(asc(YieldRateHist.TENOR)) \
         .all()
+
     tenor2ytm = {x.TENOR: x.YIELD_RATE for x in yield_rate_hist}
     
     tenor0 = np.array(eval(tenor0))
