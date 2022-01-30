@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import Simulation from './Simulation';
 import Menu from './Menu';
 import ReadMe from './ReadMe';
+import DataImport from './DataImport';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Routes>
         <Route path="/simulation" element={ <Simulation /> } />
         <Route path="/readme" element={ <ReadMe /> } />
+        <Route path="/dataimport" element={ <DataImport /> } />
       </Routes>
     </div>
   )

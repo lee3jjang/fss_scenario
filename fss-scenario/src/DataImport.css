@@ -1,0 +1,25 @@
+body {
+  display: flex;
+  justify-content: center;
+}
+.dataframe {
+  transform: translateX(-5%);
+  width: 700px;
+}
+.dataframe thead {
+  background: #009473;
+  color: #fbfbfb;
+  height: 30px;
+}
+.dataframe thead th {
+  padding: 10px 0;
+  text-align: center;
+  width: 50%;
+}
+.dataframe tr {
+  height: 30px;
+}
+.dataframe tbody td {
+  text-align: center;
+  vertical-align: middle;
+}
