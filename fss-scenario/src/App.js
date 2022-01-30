@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import Simulation from './Simulation';
 import Menu from './Menu';
+import ReadMe from './ReadMe';
 
 function App() {
   return (
@@ -9,7 +10,7 @@ function App() {
 
       <Routes>
         <Route path="/simulation" element={ <Simulation /> } />
-        <Route path="/" />
+        <Route path="/readme" element={ <ReadMe /> } />
       </Routes>
     </div>
   )

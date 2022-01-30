@@ -1,0 +1,23 @@
+body {
+  margin-top: 100px;
+  margin-left: 50px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  font-size: 15px;
+}
+section {
+  padding: 10px 0;
+}
+h1 {
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+h3 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+p {
+  margin: 10px 0;
+  margin-left: 14px;
+}
