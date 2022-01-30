@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Plot from 'react-plotly.js';
 import './Simulation.css';
-import Menu from './Menu';
 
 function Simulation() {
   
@@ -139,7 +138,6 @@ function Simulation() {
         </div>
       </div>
 
-      <Menu />
       <Plot data={[
         ...(chkMktRate && discType === "spot" ? [{
           x: info.tenor.map(x => x*12),
